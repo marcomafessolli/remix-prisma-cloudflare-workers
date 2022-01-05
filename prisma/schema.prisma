@@ -13,3 +13,16 @@ model User {
   email String  @unique
   name  String?
 }
+
+model Log {
+  id      String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  level   Level
+  message String
+  meta    Json
+}
+
+enum Level {
+  Info
+  Warn
+  Error
+}
