@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatches,
 } from 'remix'
 
 import type { MetaFunction } from 'remix'
@@ -14,6 +15,10 @@ export const meta: MetaFunction = () => {
 }
 
 export default function App() {
+  const matches = useMatches()
+
+  const includeScripts = matches.some((match) => match.handle?.hydrate)
+
   return (
     <html lang='en'>
       <head>
@@ -25,7 +30,7 @@ export default function App() {
       <body>
         <Outlet />
         <ScrollRestoration />
-        <Scripts />
+        {includeScripts ? <Scripts /> : null}
         {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
