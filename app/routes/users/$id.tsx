@@ -4,8 +4,6 @@ import type { LoaderFunction, MetaFunction, HeadersFunction } from 'remix'
 import { db } from '~/utils/prisma.server'
 import type { User } from '@prisma/client'
 
-export let handle = { hydrate: false }
-
 export let meta: MetaFunction = ({ data }: { data: User | undefined }) => {
   if (!data) {
     return {
