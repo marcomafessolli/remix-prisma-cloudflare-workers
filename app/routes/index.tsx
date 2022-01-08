@@ -1,55 +1,42 @@
-import { LoaderFunction, useLoaderData } from 'remix'
-import { db } from '~/utils/prisma.server'
+import { Link, useLoaderData } from 'remix'
+import type { LoaderFunction, MetaFunction } from 'remix'
 
-type LoaderData = {
-  id: string
-  name: string
-  email: string
+import { db } from '~/utils/prisma.server'
+import type { User } from '@prisma/client'
+
+export let meta: MetaFunction = () => {
+  return {
+    title: 'Remix + Prisma + Cloudflare Workers',
+    description: 'Remix + Prisma + Cloudflare Workers example project',
+  }
 }
 
 export let loader: LoaderFunction = async () => {
-  const users = await db.user.findMany()
+  const users = await db.user.findMany({
+    take: 5,
+    select: { id: true, name: true },
+  })
+
   return users
 }
 
 export default function Index() {
-  const users = useLoaderData<LoaderData[]>()
+  const users = useLoaderData<User[]>()
 
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
       <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target='_blank'
-            href='https://remix.run/tutorials/blog'
-            rel='noreferrer'
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target='_blank'
-            href='https://remix.run/tutorials/jokes'
-            rel='noreferrer'
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target='_blank' href='https://remix.run/docs' rel='noreferrer'>
-            Remix Docs
-          </a>
-        </li>
-      </ul>
       <main>
-        {users.map((user) => (
-          <div key={user.id}>
-            <h2>{user.name}</h2>
-            <p>{user.email}</p>
-          </div>
-        ))}
+        <h2>Users</h2>
+        <ul>
+          {users.map((user) => (
+            <li key={user.id}>
+              <Link to={`/users/${user.id}`} prefetch='intent'>
+                {user.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </main>
     </div>
   )

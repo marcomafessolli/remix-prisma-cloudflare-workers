@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'remix'
+
 import type { MetaFunction } from 'remix'
 
 export const meta: MetaFunction = () => {
