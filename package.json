@@ -6,7 +6,7 @@
     "clean": "rimraf .cache .mf build dist",
     "dev": "npm run build:remix && cross-env NODE_ENV=development concurrently \"npm:dev:*\"",
     "dev:remix": "remix watch",
-    "dev:worker": "miniflare --build-command \"node ./scripts/build.js\" --no-cache --watch",
+    "dev:worker": "miniflare --build-command \"node ./scripts/build.js\" --watch",
     "build": "npm run build:remix && npm run build:worker",
     "build:remix": "remix build",
     "build:worker": "NODE_ENV=production node ./scripts/build.js",
@@ -24,7 +24,7 @@
     "remix": "^1.1.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^2.2.2",
+    "@cloudflare/workers-types": "^3.3.0",
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
     "@remix-run/dev": "^1.1.1",
     "@types/react": "^17.0.24",

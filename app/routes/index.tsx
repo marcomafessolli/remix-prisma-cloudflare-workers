@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from 'remix'
+import { Link, useLoaderData, json } from 'remix'
 import type { LoaderFunction, MetaFunction } from 'remix'
 
 import { db } from '~/utils/prisma.server'
@@ -17,7 +17,7 @@ export let loader: LoaderFunction = async () => {
     select: { id: true, name: true },
   })
 
-  return users
+  return json(users)
 }
 
 export default function Index() {
@@ -25,9 +25,8 @@ export default function Index() {
 
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
-      <h1>Welcome to Remix</h1>
+      <h1>Users</h1>
       <main>
-        <h2>Users</h2>
         <ul>
           {users.map((user) => (
             <li key={user.id}>

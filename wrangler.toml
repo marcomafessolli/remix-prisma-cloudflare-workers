@@ -3,10 +3,6 @@ type = "javascript"
 
 workers_dev = true
 
-zone_id = ""
-account_id = ""
-route = ""
-
 [site]
 bucket = "./public"
 entry-point = "."

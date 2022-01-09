@@ -5,20 +5,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useMatches,
 } from 'remix'
 
-import type { MetaFunction } from 'remix'
-
-export const meta: MetaFunction = () => {
-  return { title: 'New Remix App' }
-}
-
 export default function App() {
-  const matches = useMatches()
-
-  const includeScripts = matches.some((match) => match.handle?.hydrate)
-
   return (
     <html lang='en'>
       <head>
@@ -30,7 +19,7 @@ export default function App() {
       <body>
         <Outlet />
         <ScrollRestoration />
-        {includeScripts ? <Scripts /> : null}
+        <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>

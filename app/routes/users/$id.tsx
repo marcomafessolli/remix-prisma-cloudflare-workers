@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from 'remix'
+import { Link, useLoaderData, json } from 'remix'
 import type { LoaderFunction, MetaFunction, HeadersFunction } from 'remix'
 
 import { db } from '~/utils/prisma.server'
@@ -26,7 +26,7 @@ export let loader: LoaderFunction = async ({ params }) => {
       },
     })
 
-    return user
+    return json(user)
   } catch (error) {
     throw new Response('Not Found', {
       status: 404,
