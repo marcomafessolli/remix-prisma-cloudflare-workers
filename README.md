@@ -8,8 +8,19 @@
 
 ## Setup
 
-Check [Prisma and Cloudflare](https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-cloudflare-workers) documentation and follow setup steps.
-NOTE: You can safely ignore steps 1, 3 and 4 as they are not valid/relevant for Remix.
+Before starting, make sure you have the following:
+
+* `node >= 16`
+* A Prisma Data Proxy account
+* Followed steps [#6](https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-cloudflare-workers#6-create-repository-and-push-to-github) and [#7](https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-cloudflare-workers#7-importing-your-project-into-the-prisma-data-platform)
+* A `.env` file with `DATABASE_URL` that points to your prisma data proxy account 
+
+After that, do the following:
+
+* `npm install`
+* `PRISMA_CLIENT_ENGINE_TYPE=dataproxy npx prisma generate`
+
+Check [Prisma and Cloudflare](https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-cloudflare-workers) for more information.
 
 ## Development
 
@@ -17,7 +28,7 @@ NOTE: You can safely ignore steps 1, 3 and 4 as they are not valid/relevant for 
 $ npm run dev
 ```
 
-Open up [http://127.0.0.1:8787](http://127.0.0.1:8787) and you should be ready to go!
+And then check `http://127.0.0.1:8787`. You're ready 💇‍♂️
 
 ## Deployment
 
