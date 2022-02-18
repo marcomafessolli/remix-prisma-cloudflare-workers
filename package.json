@@ -6,7 +6,7 @@
     "clean": "rimraf .cache .mf build dist",
     "dev": "npm run build:remix && cross-env NODE_ENV=development concurrently \"npm:dev:*\"",
     "dev:remix": "remix watch",
-    "dev:worker": "miniflare --build-command \"node ./scripts/build.js\" --watch",
+    "dev:worker": "NODE_ENV=development miniflare --build-command \"node ./scripts/build.js\" --watch --debug --global-async-io --global-timers --global-random",
     "build": "npm run build:remix && npm run build:worker",
     "build:remix": "remix build",
     "build:worker": "NODE_ENV=production node ./scripts/build.js",

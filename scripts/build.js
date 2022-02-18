@@ -6,7 +6,6 @@ const {
 
 async function build() {
   const mode = process.env.NODE_ENV?.toLowerCase() ?? 'development'
-  console.log(`Building Worker in ${mode} mode`)
 
   await esbuild.build({
     entryPoints: ['./worker/index.ts'],
@@ -28,7 +27,9 @@ async function build() {
   })
 }
 
-build().catch((err) => {
-  console.error(err)
+build()
+.then(() => {
+})
+.catch((err) => {
   process.exit(1)
 })
