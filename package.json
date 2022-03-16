@@ -15,7 +15,7 @@
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,md,yml}\""
   },
   "dependencies": {
-    "@prisma/client": "^3.10.0",
+    "@prisma/client": "^3.11.0",
     "@remix-run/cloudflare-workers": "^1.1.1",
     "@remix-run/react": "^1.2.3",
     "chalk": "^5.0.0",
