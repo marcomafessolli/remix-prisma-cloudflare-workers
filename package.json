@@ -11,7 +11,7 @@
     "build:remix": "remix build",
     "build:worker": "NODE_ENV=production node ./scripts/build.js",
     "deploy": "wrangler publish",
-    "postinstall": "remix setup cloudflare-workers",
+    "postinstall": "patch-package && remix setup cloudflare-workers",
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,md,yml}\""
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "esbuild": "^0.14.27",
     "esbuild-plugin-alias": "^0.2.1",
     "miniflare": "^2.3.0",
+    "patch-package": "^6.4.7",
     "prettier": "^2.5.1",
     "prisma": "^3.11.1",
     "rimraf": "^3.0.2",
