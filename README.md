@@ -26,7 +26,7 @@ Check [Prisma and Cloudflare](https://www.prisma.io/docs/guides/deployment/deplo
 
 Currently, theres an open issue https://github.com/prisma/prisma/issues/12356 about `normalizeAndValidateHeaderValue` which is causing the `prisma-client-js` to fail. As a workarround, I've added a patch using `patch-package` that works while the issue isn't resolved. Make sure that `patch-package` runs after `npm install`
 
-Credits to (@clintonwoo)[https://github.com/clintonwoo] for finding a solution / workarround.
+Credits to [@clintonwoo](https://github.com/clintonwoo) for finding a solution / workarround.
 
 ## Development
 
