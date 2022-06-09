@@ -3,8 +3,7 @@ import {
   handleAsset,
 } from '@remix-run/cloudflare-workers'
 
-// @ts-ignore @ts-expect-error
-import * as build from '../build'
+import * as build from '@remix-run/dev/server-build'
 
 export const handleRequest = createRequestHandler({ build })
 
