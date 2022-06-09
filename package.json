@@ -34,7 +34,7 @@
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.27",
     "esbuild-plugin-alias": "^0.2.1",
-    "miniflare": "^2.3.0",
+    "miniflare": "^2.5.0",
     "patch-package": "^6.4.7",
     "prettier": "^2.5.1",
     "prisma": "^3.15.0",
