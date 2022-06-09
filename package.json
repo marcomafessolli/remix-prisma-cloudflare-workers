@@ -1,18 +1,17 @@
 {
   "private": true,
   "name": "remix-app-template",
-  "main": "./dist/worker.js",
+  "main": "./build/index.js",
   "scripts": {
     "clean": "rimraf .cache .mf build dist",
-    "dev": "npm run build:remix && cross-env NODE_ENV=development concurrently \"npm:dev:*\"",
+    "dev": "npm run build && cross-env NODE_ENV=development concurrently \"npm:dev:*\"",
     "dev:remix": "remix watch",
-    "dev:worker": "NODE_ENV=development miniflare --build-command \"node ./scripts/build.js\" --watch --debug --global-async-io --global-timers --global-random",
-    "build": "npm run build:remix && npm run build:worker",
-    "build:remix": "remix build",
-    "build:worker": "NODE_ENV=production node ./scripts/build.js",
-    "deploy": "wrangler publish",
-    "postinstall": "remix setup cloudflare-workers",
-    "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,md,yml}\""
+    "dev:worker": "npm run build && cross-env NODE_ENV=development miniflare --build-command \"node ./scripts/build.js\" -w -d",
+    "build": "npm run clean && remix build",
+    "deploy": "npm run build && wrangler publish",
+    "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,md,yml}\"",
+    "generate-client": "prisma generate --data-proxy",
+    "migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^3.15.0",
