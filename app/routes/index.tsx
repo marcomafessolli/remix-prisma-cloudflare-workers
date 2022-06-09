@@ -1,7 +1,7 @@
 import { Link, useLoaderData, json } from 'remix'
 import type { LoaderFunction, MetaFunction } from 'remix'
 
-import { db } from '~/utils/prisma.server'
+import { prisma } from '~/utils/prisma.server'
 import type { User } from '@prisma/client'
 
 export let meta: MetaFunction = () => {
@@ -12,7 +12,7 @@ export let meta: MetaFunction = () => {
 }
 
 export let loader: LoaderFunction = async () => {
-  const users = await db.user.findMany({
+  const users = await prisma.user.findMany({
     take: 5,
     select: { id: true, name: true },
   })
