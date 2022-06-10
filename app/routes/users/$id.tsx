@@ -1,7 +1,7 @@
 import { Link, useLoaderData, json } from 'remix'
 import type { LoaderFunction, MetaFunction, HeadersFunction } from 'remix'
 
-import { prisma } from '~/utils/prisma.server'
+import { db } from '~/db.server'
 import type { User } from '@prisma/client'
 
 export let meta: MetaFunction = ({ data }: { data: User | undefined }) => {
@@ -20,7 +20,7 @@ export let meta: MetaFunction = ({ data }: { data: User | undefined }) => {
 
 export let loader: LoaderFunction = async ({ params }) => {
   try {
-    const user = await prisma.user.findUnique({
+    const user = await db.user.findUnique({
       where: {
         id: params.id,
       },
