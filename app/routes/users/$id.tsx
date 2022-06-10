@@ -1,5 +1,7 @@
-import { Link, useLoaderData, json } from 'remix'
-import type { LoaderFunction, MetaFunction, HeadersFunction } from 'remix'
+import type { LoaderFunction, MetaFunction, HeadersFunction } from '@remix-run/node'
+import { json } from '@remix-run/cloudflare'
+import { useLoaderData, Link } from '@remix-run/react'
+
 
 import { db } from '~/db.server'
 import type { User } from '@prisma/client'
