@@ -14,15 +14,15 @@
     "migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy"
   },
   "dependencies": {
-    "@prisma/client": "^3.15.1",
-    "@remix-run/cloudflare": "^1.5.1",
-    "@remix-run/cloudflare-workers": "^1.5.1",
-    "@remix-run/react": "^1.5.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "@prisma/client": "^3.15.2",
+    "@remix-run/cloudflare": "^1.6.1",
+    "@remix-run/cloudflare-workers": "^1.6.1",
+    "@remix-run/react": "^1.6.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.11.0",
+    "@cloudflare/workers-types": "^3.13.0",
     "@cloudflare/wrangler": "^1.19.12",
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
     "@remix-run/dev": "^1.5.1",
@@ -34,7 +34,7 @@
     "esbuild-plugin-alias": "^0.2.1",
     "miniflare": "^2.5.0",
     "prettier": "^2.6.2",
-    "prisma": "^3.15.1",
+    "prisma": "^3.15.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.7.3"
   },
